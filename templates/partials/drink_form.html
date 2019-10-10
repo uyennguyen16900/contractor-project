@@ -2,12 +2,12 @@
     <legend>Edit Drink</legend>
     <!-- TITLE -->
     <div class='form-group'>
-        <label for='drink-title'>Name</label><br>
+        <label for='drink-name'>Name</label><br>
         <input class='form-control' id='drink-name' type='text' name='name' value='{{ drink.name }}'/>
     </div>
 
     <div class='form-group'>
-        <label for='drink-title'>Price</label><br>
+        <label for='drink-name'>Price</label><br>
         <input class='form-control' id='drink-price' type='text' name='price' value='{{ drink.price }}'/>
     </div>
 
@@ -17,10 +17,12 @@
         <input class='form-control' id='description' type='text' name='description' value='{{ drink.description }}' />
     </div>
 
-    <!-- DESCRIPTION -->
+    <!-- IMAGE -->
     <div class='form-group'>
         <label for='drink-images'>Image</label><br/>
         <p class='text-muted'>Add a picture of the drink.</p>
-        <textarea class='form-control' id='drink-images' name='images' rows='10' />{{ "\n".join(drink.images) }}</textarea>
+        <input type="file" name="images" accept="image/*" value=""><br><br>
+
+        <!-- <textarea class='form-control' id='drink-images' name='images' rows='10' />{{ "\n".join(drink.images) }}</textarea> -->
     </div>
 </fieldset>
