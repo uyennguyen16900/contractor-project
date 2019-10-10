@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from functools import reduce
+# from functools import reduce
 import os
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/my_app_db')
@@ -30,7 +30,7 @@ def drinks_submit():
         'description': request.form.get('description'),
         'images': request.form.get('images')
     }
-    drink_id = drinks_collection.insert_one(drink).insert_id
+    drink_id = drinks_collection.insert_one(drink).inserted_id
     return redirect(url_for('drinks_show', drink_id=drink_id))
 
 @app.route('/drinks/<drink_id>')
