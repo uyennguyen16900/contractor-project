@@ -29,8 +29,10 @@ def drinks_submit():
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        # 'images': request.form.get('images')
+        'images': request.form.get('images').split()
     }
+    print('HERE_______________________')
+    print(drink['images'])
     drink_id = drinks_collection.insert_one(drink).inserted_id
     print(drink_id)
     return redirect(url_for('drinks_show', drink_id=drink_id))
@@ -41,7 +43,7 @@ def drinks_show(drink_id):
     print('_________________befores')
     print(drink_id)
     drink = drinks_collection.find_one({'_id': ObjectId(drink_id)})
-    print("__________________after")
+
     print(drink)
 
     return render_template('drinks_show.html', drink=drink)
@@ -59,7 +61,7 @@ def drinks_update(drink_id):
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        # 'images': request.form.get('images')
+        'images': request.form.get('images')
     }
     drinks_collection.update_one(
         {'id': ObjectId(drink_id)},
