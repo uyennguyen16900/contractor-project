@@ -45,14 +45,14 @@ def drinks_edit(drink_id):
     drink = drinks_collection.find_one({'_id': ObjectId(drink_id)})
     return render_template('drinks_edit.html', drink=drink)
 
-@app.route('/drinks/<drink_id>/edit', methods=['POST'])
+@app.route('/drinks/<drink_id>', methods=['POST'])
 def drinks_update(drink_id):
     """Submit an edited drink."""
     updated_drink = {
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'images': request.form.get('images')
+        'images': request.form.get('images').split()
     }
     drinks_collection.update_one(
         {'id': ObjectId(drink_id)},
