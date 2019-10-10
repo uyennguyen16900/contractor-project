@@ -1,0 +1,21 @@
+<fieldset>
+    <legend>Edit Drink</legend>
+    <!-- TITLE -->
+    <div class='form-group'>
+        <label for='playlist-title'>Title</label><br>
+        <input class='form-control' id='drink-name' type='text' name='name' value='{{ drink.name }}'/>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class='form-group'>
+        <label for='description'>Description</label><br>
+        <input class='form-control' id='description' type='text' name='description' value='{{ drink.description }}' />
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class='form-group'>
+        <label for='img-url'>Image</label><br/>
+        <p class='text-muted'>Add a picture of the drink.</p>
+        <textarea class='form-control' id='img-urls' name='images' rows='10' />{{ "\n".join(drink.images) }}</textarea>
+    </div>
+</fieldset>
