@@ -14,7 +14,6 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     """Show homepage."""
-
     return render_template('homepage.html', drinks=drinks_collection.find())
 
 @app.route('/drinks/new')
@@ -31,21 +30,13 @@ def drinks_submit():
         'description': request.form.get('description'),
         'images': request.form.get('images').split()
     }
-    print('HERE_______________________')
-    print(drink['images'])
     drink_id = drinks_collection.insert_one(drink).inserted_id
-    print(drink_id)
     return redirect(url_for('drinks_show', drink_id=drink_id))
 
 @app.route('/drinks/<drink_id>')
 def drinks_show(drink_id):
     """Show a single drink."""
-    print('_________________befores')
-    print(drink_id)
     drink = drinks_collection.find_one({'_id': ObjectId(drink_id)})
-
-    print(drink)
-
     return render_template('drinks_show.html', drink=drink)
 
 @app.route('/drinks/<drink_id>/edit')
