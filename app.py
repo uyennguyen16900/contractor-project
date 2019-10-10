@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from google.appengine.api import images
 # from functools import reduce
 import os
 
@@ -29,7 +28,7 @@ def drinks_submit():
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'images': images.resize(request.form.get('images'),100,100)
+        'images': request.form.get('images')
     }
     drink_id = drinks_collection.insert_one(drink).inserted_id
     return redirect(url_for('drinks_show', drink_id=drink_id))
@@ -53,7 +52,7 @@ def drinks_update(drink_id):
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'images': images.resize(request.form.get('images'),100,100)
+        'images': request.form.get('images')
     }
     drinks_collection.update_one(
         {'id': ObjectId(drink_id)},
