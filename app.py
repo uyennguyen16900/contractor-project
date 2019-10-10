@@ -19,7 +19,7 @@ def homepage():
 @app.route('/drinks/new')
 def drinks_new():
     """Create a new drink."""
-    return render_template('drinks_new.html')
+    return render_template('drinks_new.html', drink={})
 
 @app.route('/drinks', methods=['POST'])
 def drinks_submit():
