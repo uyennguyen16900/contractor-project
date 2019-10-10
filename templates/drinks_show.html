@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="/">Back to Home</a>
+
+<h1>Drink: {{drink.name}}</h1>
+
+<h2>Description: {{drink.description}}</h2>
+
+<img src="{{drink.img_url}}"><br>
+
+Cost: ${{drink.price}}
+
+<br><br>
+<a href="/edit/{{drink._id}}">Edit Drink</a>
+
+<br><br>
+<form action="/delete/{{drink._id}}" method="POST">
+    <button type="submit">Delete Drink</button>
+</form>
+
+{% endblock %}
