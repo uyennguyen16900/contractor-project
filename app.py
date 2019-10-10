@@ -26,9 +26,9 @@ def drinks_submit():
     """Submit a new drink."""
     drinks = {
         'name': request.form.get('name'),
-        'price': request.form.get('price'),
+        # 'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'images': request.form.get('img_url')
+        'images': request.form.get('images')
     }
     drink_id = drinks_collection.insert_one(drink).insert_id
     return redirect(url_for('drinks_show', drink_id=drink_id))
