@@ -52,7 +52,7 @@ def drinks_update(drink_id):
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'images': request.form.get('img_url')
+        'images': request.form.get('image')
     }
     drinks_collection.update_one(
         {'id': ObjectId(drink_id)},
