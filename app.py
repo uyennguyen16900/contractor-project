@@ -26,7 +26,7 @@ def drinks_submit():
     """Submit a new drink."""
     drinks = {
         'name': request.form.get('name'),
-        # 'price': request.form.get('price'),
+        'price': request.form.get('price'),
         'description': request.form.get('description'),
         'images': request.form.get('images')
     }
