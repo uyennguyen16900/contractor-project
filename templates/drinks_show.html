@@ -1,27 +1,3 @@
-<!-- {% extends 'base.html' %}
-
-{% block content %}
-
-<a href="/">Back to Home</a>
-
-<h1>Drink: {{drink.name}}</h1>
-
-<h2>Description: {{drink.description}}</h2>
-
-<img src="{{drink.img_url}}"><br>
-
-Cost: ${{drink.price}}
-
-<br><br>
-<a href="/edit/{{drink._id}}">Edit Drink</a>
-
-<br><br>
-<form action="/delete/{{drink._id}}" method="POST">
-    <button type="submit">Delete Drink</button>
-</form>
-
-{% endblock %} -->
-
 {% extends 'base.html' %}
 
 {% block content %}
@@ -34,7 +10,7 @@ Cost: ${{drink.price}}
         <h2>{{ drink.description }}</h2>
         {% for image in drink.images %}
             <div class="card"><div class="card-body">
-                <img width="420" height="315" src="{{ image }}"></img>
+                <img width="420" height="315" src="{{ image }}">
             </div></div>
         {% endfor %}
         <p><a href='/drinks/{{ drink._id }}/edit'>Edit</a></p>
