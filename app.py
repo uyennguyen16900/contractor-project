@@ -28,7 +28,7 @@ def drinks_submit():
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'img_url': request.form.get('img_url')
+        'images': request.form.get('img_url')
     }
     drink_id = drinks_collection.insert_one(drink).insert_id
     return redirect(url_for('drinks_show', drink_id=drink_id))
@@ -52,7 +52,7 @@ def drinks_update(drink_id):
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'img_url': request.form.get('img_url')
+        'images': request.form.get('img_url')
     }
     drinks_collection.update_one(
         {'id': ObjectId(drink_id)},

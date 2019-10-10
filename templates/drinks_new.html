@@ -1,27 +1,9 @@
-<!-- {% extends 'base.html' %}
-
-{% block content %}
-
-<a href="/">Back to Home</a>
-
-<h1>New Drink</h1>
-
-<form action="/new" method="POST">
-    Name of drink: <input type="text" name="name"><br>
-    Price of drink: <input type="number" name="price"><br>
-    Description: <input type="text" name="description"><br>
-    Image URL: <input type="text" name="img_url"><br>
-    <button type="submit">Submit</button><br>
-</form>
-
-{% endblock %} -->
-
 {% extends 'base.html' %}
 
 {% block content %}
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <form method='POST' action='/playlists'>
+        <form method='POST' action='/drinks'>
             {% include 'partials/drink_form.html' %}
             <!-- BUTTON -->
             <div class='form-group'>
