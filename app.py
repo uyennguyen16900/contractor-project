@@ -24,7 +24,7 @@ def drinks_new():
 @app.route('/drinks', methods=['POST'])
 def drinks_submit():
     """Submit a new drink."""
-    drinks = {
+    drink = {
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
@@ -40,7 +40,7 @@ def drinks_show(drink_id):
     return render_template('drinks_show.html', drink=drink)
 
 @app.route('/drinks/<drink_id>/edit')
-def drinks_edit():
+def drinks_edit(drink_id):
     """Show the edit form for a drink."""
     drink = drinks_collection.find_one({'_id': ObjectId(drink_id)})
     return render_template('drinks_edit.html', drink=drink)
@@ -52,7 +52,7 @@ def drinks_update(drink_id):
         'name': request.form.get('name'),
         'price': request.form.get('price'),
         'description': request.form.get('description'),
-        'images': request.form.get('image')
+        'images': request.form.get('images')
     }
     drinks_collection.update_one(
         {'id': ObjectId(drink_id)},

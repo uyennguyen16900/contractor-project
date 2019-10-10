@@ -2,7 +2,7 @@ from unittest import TestCase, main as unittest_main, mock
 from app import app
 from bson.objectid import ObjectId
 
-sample_drink_id = ObjectId('5d55cffc4a3d4031f42827a3')
+sample_drink_id = ObjectId('5d55cffc4a3d4021f42827a3')
 sample_drink = {
     'name': 'Jasmine Green Milk Tea',
     'price': '5',
@@ -10,8 +10,8 @@ sample_drink = {
     'images': 'https://fubellyhouston.com/wp-content/uploads/2017/04/original-138-720x720.jpeg'
 }
 sample_form_data = {
-    'name': sample_drink_id['name'],
-    'price': sample_drink_id['price'],
+    'name': sample_drink['name'],
+    'price': sample_drink['price'],
     'description': sample_drink['description'],
     'images': sample_drink['images']
 }
