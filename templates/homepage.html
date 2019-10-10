@@ -10,7 +10,8 @@
         <div class='col-md-3'>
           <div class="card" style="width: 18rem;">
             <h2><a href='/drinks/{{ drink._id }}'>{{ drink.name }}</a></h2>
-            <h3>{{ drink.description }}</h3>
+            <h4>${{ drink.price }}</h4>
+            <h5>{{ drink.description }}</h5>
           </div>
         </div>
     {% endfor %}

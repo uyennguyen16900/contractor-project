@@ -3,7 +3,7 @@
 {% block content %}
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <form method='POST' action='/drinks/{{drink._id}}'>
+        <form method='POST' action='/drinks/{{drink._id}}/edit'>
             <input type='hidden' name='_method' value='PUT'/>
             {% include 'partials/drink_form.html' %}
             <!-- BUTTON -->
