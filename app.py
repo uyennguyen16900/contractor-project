@@ -55,7 +55,7 @@ def drinks_update(drink_id):
         'images': request.form.get('images').split()
     }
     drinks_collection.update_one(
-        {'id': ObjectId(drink_id)},
+        {'_id': ObjectId(drink_id)},
         {'$set': updated_drink}
     )
     return redirect(url_for('drinks_show', drink_id=drink_id))
