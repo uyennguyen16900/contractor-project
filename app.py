@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 # from functools import reduce
 import os
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/my_app_db')
+host = os.environ.get('MONGODB_URI', 'mongodb://db:27017/my_app_db')
 client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
 drinks_collection = db.drinks
