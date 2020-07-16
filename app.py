@@ -6,7 +6,6 @@ import os
 
 host = os.environ.get('MONGODB_URI', 'mongodb://db:27017/my_app_db')
 print('mongodb running on: ' + host)
-# host = os.environ.get('MONGODB_URI', 'mongodb://root:mongodb12@167.172.208.239:27017/my_app_db')
 client = MongoClient(host=host)
 db = client.get_default_database()
 drinks_collection = db.drinks
@@ -67,6 +66,7 @@ def drinks_delete(drink_id):
     """Delete one drink."""
     drinks_collection.delete_one({'_id': ObjectId(drink_id)})
     return redirect(url_for('homepage'))
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
