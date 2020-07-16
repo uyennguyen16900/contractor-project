@@ -6,7 +6,7 @@ import os
 
 host = os.environ.get('MONGODB_URI', 'mongodb://db:27017/my_app_db')
 # host = os.environ.get('MONGODB_URI', 'mongodb://root:mongodb12@167.172.208.239:27017/my_app_db')
-client = MongoClient(host=f'{host}')
+client = MongoClient(host=host)
 db = client.get_default_database()
 drinks_collection = db.drinks
 
