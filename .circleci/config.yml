@@ -1,21 +1,13 @@
-version: 2.1
-
-orbs:
-  python: circleci/python@0.2.1
-
+version: 2
 jobs:
-  build-and-test:
-    executor: python/default
+  build:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
-
-workflows:
-  main:
-    jobs:
-      - build-and-test
+        name: Install dependencies
+        command: pip install -r requirements.txt
+      - run:
+        name: Run unit tests
+        command: python tests.py
