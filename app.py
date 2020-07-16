@@ -5,6 +5,7 @@ from bson.objectid import ObjectId
 import os
 
 host = os.environ.get('MONGODB_URI', 'mongodb://db:27017/my_app_db')
+# host = os.environ.get('MONGODB_URI', 'mongodb://MONGO_INITDB_ROOT_USERNAME:MONGO_INITDB_ROOT_PASSWORD@167.172.208.239:5000/my_app_db')
 client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
 drinks_collection = db.drinks
