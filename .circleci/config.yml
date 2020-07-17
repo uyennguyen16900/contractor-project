@@ -7,7 +7,9 @@ jobs:
       - checkout  
       - run:
           name: Install Dependencies
-          command: pip3 install Flask pymongo
+          command: |
+            pip install --upgrade pip
+            pip install Flask pymongo
       - run:
           name: Run Unit Tests
           command: python tests.py
