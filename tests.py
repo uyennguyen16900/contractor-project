@@ -58,21 +58,21 @@ class DrinksTests(TestCase):
         self.assertEqual(result.status, '200 OK')
         # self.assertIn(b'Cat Videos', result.data)
 
-    @mock.patch('pymongo.collection.Collection.insert_one')
-    def test_submit_drink(self, mock_insert):
-        """Test submitting a new drink."""
-        result = self.client.post('/drinks', data=sample_form_data)
+    # @mock.patch('pymongo.collection.Collection.insert_one')
+    # def test_submit_drink(self, mock_insert):
+    #     """Test submitting a new drink."""
+    #     result = self.client.post('/drinks', data=sample_form_data)
+    #
+    #     # After submitting, should redirect to that drink's page
+    #     self.assertEqual(result.status, '302 FOUND')
+    #     mock_insert.assert_called_with(sample_drink)
 
-        # After submitting, should redirect to that drink's page
-        self.assertEqual(result.status, '302 FOUND')
-        mock_insert.assert_called_with(sample_drink)
-
-    @mock.patch('pymongo.collection.Collection.update_one')
-    def test_update_drink(self, mock_update):
-        result = self.client.post(f'/drinks/{sample_drink_id}', data=sample_form_data)
-
-        self.assertEqual(result.status, '302 FOUND')
-        mock_update.assert_called_with({'_id': sample_drink_id}, {'$set': sample_drink})
+    # @mock.patch('pymongo.collection.Collection.update_one')
+    # def test_update_drink(self, mock_update):
+    #     result = self.client.post(f'/drinks/{sample_drink_id}', data=sample_form_data)
+    #
+    #     self.assertEqual(result.status, '302 FOUND')
+    #     mock_update.assert_called_with({'_id': sample_drink_id}, {'$set': sample_drink})
 
     @mock.patch('pymongo.collection.Collection.delete_one')
     def test_delete_drink(self, mock_delete):
