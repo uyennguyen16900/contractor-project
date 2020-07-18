@@ -4,7 +4,12 @@
 
 
 
-
+### Clone the repo
+```bash
+git clone https://github.com/uyennguyen16900/contractor-project.git
+```
+## Docker
+Make sure Docker is running
 ### Build the image
 ```bash
 docker build -t contractor-image .
