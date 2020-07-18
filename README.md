@@ -14,7 +14,7 @@ Make sure Docker is running
 ```bash
 docker build -t contractor-image .
 ```
-### Run
+### Build the container
 ```bash
 docker run -p 5000:5000 flask-container contractor-image
 ```
@@ -22,11 +22,11 @@ docker run -p 5000:5000 flask-container contractor-image
 ```bash
 docker ps
 ```
-### Docker compose
+### Run
 ```bash
-docker-compose run
+docker-compose up
 ```
 ### To stop, run
 ```bash
-docker-compose stop
+docker-compose down
 ```
